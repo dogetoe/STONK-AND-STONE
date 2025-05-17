@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
 
 // player variables
 char input; // used for general menu navigation
@@ -7,11 +9,29 @@ float money = 15000; // player's money
 int inputstock; // input for buying stock
 int inputstocksell; // input for selling stock
 
+// event variables
+int randomevent = 0; // random events are based on an int, triggering certain events if within a certain range
+
 // neg grass variables
 float grassstockvalue = 3985.8;
 int grassstocktotal = 26000;
 int grassstockcirculation = 2584;
 int grassstocksowned = 0;
+
+void RandomEvent(int min, int max, int count) {
+
+    // Taking current time as seed
+    unsigned int seed = time(0);
+
+    // Generate a random number in the range [min, max]
+    int rd_num = rand_r(&seed) % (max - min + 1) + min;
+    if (randomevent == 0) { 
+        randomevent = rd_num;
+        printf(" %d", randomevent);
+    } else { 
+        
+    }
+}
 
 
 int main() {
