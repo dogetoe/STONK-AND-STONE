@@ -18,23 +18,76 @@ int grassstocktotal = 26000;
 int grassstockcirculation = 2584;
 int grassstocksowned = 0;
 
+// dogeware variables
+float dogestockvalue = 386;
+
+// event that crashes stock market
+void Asteroid() {
+    printf("\n");
+    printf("    ____\n");
+    printf("  /  o  \\ \n");
+    printf("/        \\______\n");
+    printf(" \\      o      |\n");
+    printf("   \\         O/\n");
+    printf("    \\ o      /\n");
+    printf("     | ___ o / \n");
+    printf("          |_|\n");
+    printf("\n");
+    printf("BREAKING NEWS: ASTEROID INCOMING; STOCK MARKET CRASHING DUE TO INVESTORS DIVESTING.\n");
+    printf("It is advisable to divest assets prior to entering bankruptcy to ensure optimal financial outcome. Remember: corporate failure is a temporary condition. Bankruptcy is usually not.\n");
+    printf("\n");
+    grassstockvalue -= 1291;
+    printf("Current Negative Grass stock value: %f\n", grassstockvalue);
+    sleep(1);
+}
+
+// event that increases DogeWare stock value by a lot
+void DogeWareSpreadSheet() {
+    printf("BREAKING NEWS: DogeWare just released a new popular spreadsheet program that has increased their share value by 100 percent!\n");
+    printf("Heres what the program looks like:\n");
+    printf("_____________________________\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("| _ | _ | _ | _ | _ | _ | _ |\n");
+    printf("-----------------------------\n");
+    dogestockvalue *= 2;
+    printf("Current DogeWare stock value: %f\n", dogestockvalue);
+    sleep(1);
+}
+
+// event randomizer
 void RandomEvent(int min, int max, int count) {
 
-    // Taking current time as seed
+    // taking current time as seed
     unsigned int seed = time(0);
 
-    // Generate a random number in the range [min, max]
+    // generate a random number in the range [min, max]
     int rd_num = rand_r(&seed) % (max - min + 1) + min;
-    if (randomevent == 0) { 
-        randomevent = rd_num;
-        printf(" %d", randomevent);
-    } else { 
+    
+    randomevent = rd_num;
+    if (randomevent == 0) {
+        Asteroid();
+    } else if (randomevent == 1) {
+        DogeWareSpreadSheet();
+    } else {
         
     }
+    
 }
 
 
 int main() {
+    int min = 0;
+    int max = 3;
+    int count = 1;
     printf("Welcome to STONKS AND STONES!\n");
     sleep(2);
     printf("\n");
@@ -77,6 +130,7 @@ int main() {
                             printf("Your balance is now: %f\n", money);
                             printf("The amount of stocks for this company you own is: %d\n", grassstocksowned);
                             sleep(2);
+                            RandomEvent(min, max, count);
                             continue;
                         } else {
                             printf("You do not have enough money. Current money: %f\n", money);
