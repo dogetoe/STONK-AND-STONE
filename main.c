@@ -37,7 +37,7 @@ void Asteroid() {
     printf("It is advisable to divest assets prior to entering bankruptcy to ensure optimal financial outcome. Remember: corporate failure is a temporary condition. Bankruptcy is usually not.\n");
     printf("\n");
     grassstockvalue -= 1291;
-    printf("Current Negative Grass stock value: %f\n", grassstockvalue);
+    printf("Current Negative Grass share value: %f\n", grassstockvalue);
     sleep(1);
 }
 
@@ -59,8 +59,15 @@ void DogeWareSpreadSheet() {
     printf("| _ | _ | _ | _ | _ | _ | _ |\n");
     printf("-----------------------------\n");
     dogestockvalue *= 2;
-    printf("Current DogeWare stock value: %f\n", dogestockvalue);
+    printf("Current DogeWare share value: %f\n", dogestockvalue);
     sleep(1);
+}
+
+// negative grass increases
+void GrassDecrease() {
+    printf("BREAKING NEWS: Sudden decrease in grass has people questioning Negative Grass while investors are investing by the second, eager to get a share of the company's profits!\n");
+    grassstockvalue *= 3;
+    printf("Current Negative Grass share value: %f\n", grassstockvalue);
 }
 
 // event randomizer
@@ -77,6 +84,8 @@ void RandomEvent(int min, int max, int count) {
         Asteroid();
     } else if (randomevent == 1) {
         DogeWareSpreadSheet();
+    } else if (randomevent == 2) {
+        GrassDecrease(); // increases Neg Grass value bc grass disappears
     } else {
         
     }
@@ -86,7 +95,7 @@ void RandomEvent(int min, int max, int count) {
 
 int main() {
     int min = 0;
-    int max = 3;
+    int max = 4;
     int count = 1;
     printf("Welcome to STONKS AND STONES!\n");
     sleep(2);
