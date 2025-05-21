@@ -19,10 +19,47 @@ int grassstockcirculation = 2584;
 int grassstocksowned = 0;
 
 // dogeware variables
-float dogestockvalue = 386;
+float dogestockvalue = 386;\
+
+// horrible games variables
+float horriblestockvalue =  184929;
+
+void WorstHorribleGame() {
+    printf("BREAKING NEWS: Horrible Games hyped over 6 million fans for a new AAA game, only for it to be their worst game yet!\n");
+    printf("Even though it had over 7 million sales in the first day, players were so disappointed that investors are divesting!\n");
+    printf("Here's what the game looks like, it doesn't even have any actual graphics!\n");
+    printf("        _________\n");
+    printf("       /        /\n");
+    printf("     __         |\n");
+    printf("     |         /\n");
+    printf("      |        |\n");
+    printf("       _______/\n");
+    printf("\n");
+    printf("                      _\n");
+    printf("                     |_|\n");
+    printf("                    --|--\n");
+    printf("                      |\n");
+    printf("                     | |\n");
+    printf("                     | |\n");
+    printf("----------------------------------------\n");
+    printf("                                       |\n");
+    printf("                                       |\n");
+    printf("                                       |\n");
+    printf("                                       |\n");
+    printf("                                       |\n");
+    printf("\n");
+    printf("\n");
+    printf("Horrible Games' share value dropped almost to half of what it had been!\n");
+    horriblestockvalue /= 1.5;
+    printf("Current Horrible Games share value: %f\n", horriblestockvalue);
+    printf("\n");
+    printf("\n");
+    sleep(1);
+}
 
 // event that crashes stock market
 void Asteroid() {
+    printf("\n");
     printf("\n");
     printf("    ____\n");
     printf("  /  o  \\ \n");
@@ -43,6 +80,7 @@ void Asteroid() {
 
 // event that increases DogeWare stock value by a lot
 void DogeWareSpreadSheet() {
+    printf("\n");
     printf("BREAKING NEWS: DogeWare just released a new popular spreadsheet program that has increased their share value by 100 percent!\n");
     printf("Heres what the program looks like:\n");
     printf("_____________________________\n");
@@ -65,9 +103,11 @@ void DogeWareSpreadSheet() {
 
 // negative grass increases
 void GrassDecrease() {
+    printf("\n");
     printf("BREAKING NEWS: Sudden decrease in grass has people questioning Negative Grass while investors are investing by the second, eager to get a share of the company's profits!\n");
     grassstockvalue *= 3;
     printf("Current Negative Grass share value: %f\n", grassstockvalue);
+    sleep(1);
 }
 
 // event randomizer
@@ -86,6 +126,8 @@ void RandomEvent(int min, int max, int count) {
         DogeWareSpreadSheet();
     } else if (randomevent == 2) {
         GrassDecrease(); // increases Neg Grass value bc grass disappears
+    } else if (randomevent == 3) {
+        WorstHorribleGame();
     } else {
         
     }
@@ -95,7 +137,7 @@ void RandomEvent(int min, int max, int count) {
 
 int main() {
     int min = 0;
-    int max = 4;
+    int max = 5;
     int count = 1;
     printf("Welcome to STONKS AND STONES!\n");
     sleep(2);
