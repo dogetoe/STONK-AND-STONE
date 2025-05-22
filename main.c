@@ -20,6 +20,7 @@ int grassstocksowned = 0;
 
 // dogeware variables
 float dogestockvalue = 386;\
+int dogestockcirculation = 1275;
 
 // horrible games variables
 float horriblestockvalue =  184929;
@@ -110,6 +111,33 @@ void GrassDecrease() {
     sleep(1);
 }
 
+// DogeWare circulation decreases
+void BuyStockCrashMarket() {
+    printf("\n");
+    printf("\n");
+    printf("BREAKING NEWS: CEO of AlphaTest has decided to invest in all of DogeWare's shares, rendering DogeWare's share circulation near 0!\n");
+    if (dogestockcirculation <= 290) {
+        dogestockcirculation -= 100;
+        if (dogestockcirculation <= 0) {
+            dogestockcirculation = 27;
+            printf("\n");
+            printf("Current DogeWare shares in circulation: %d", dogestockcirculation);
+            printf("\n");
+        } else {
+            printf("\n");
+            printf("Current DogeWare shares in circulation: %d", dogestockcirculation);
+            printf("\n");
+        }
+    } else {
+        dogestockcirculation = 84;
+        printf("\n");
+        printf("Current DogeWare shares in circulation: %d", dogestockcirculation);
+        printf("\n");
+    }
+    printf("\n");
+    printf("\n");
+}
+
 // event randomizer
 void RandomEvent(int min, int max, int count) {
 
@@ -128,8 +156,8 @@ void RandomEvent(int min, int max, int count) {
         GrassDecrease(); // increases Neg Grass value bc grass disappears
     } else if (randomevent == 3) {
         WorstHorribleGame();
-    } else {
-        
+    } else if (randomevent == 4) {
+        BuyStockCrashMarket();
     }
     
 }
@@ -137,7 +165,7 @@ void RandomEvent(int min, int max, int count) {
 
 int main() {
     int min = 0;
-    int max = 5;
+    int max = 7;
     int count = 1;
     printf("Welcome to STONKS AND STONES!\n");
     sleep(2);
